@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Landing Page</title>
+  <!-- Meta etiqueta para asegurar el diseño responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Enlace al archivo CSS externo (opcional, también puedes usar <style>) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- CABECERA -->
+  <header class="hero-header">
+    <h1>Bienvenidos a Nuestra Gran Apertura</h1>
+    <p>Conoce más sobre nuestro evento y productos destacados</p>
+  </header>
+
+  <!-- GALERÍA PRINCIPAL -->
+  <section class="gallery">
+    <!-- Imagen 1 -->
+    <figure>
+      <img 
+        src="imgs/prod1.webp" 
+        alt="Producto 1" 
+        class="gallery-img">
+      <figcaption>Cascos Inalámbricos CL</figcaption>
+    </figure>
+    
+    <!-- Imagen 2 -->
+    <figure>
+      <img 
+        src="imgs/prod2.webp" 
+        alt="Producto 2" 
+        class="gallery-img">
+      <figcaption>Reloj Inteligente Wicil</figcaption>
+    </figure>
+    
+    <!-- Imagen 3 -->
+    <figure>
+      <img 
+        src="imgs/prod3.webp" 
+        alt="Producto 3" 
+        class="gallery-img">
+      <figcaption>Altavoz Bluetooth Anax</figcaption>
+    </figure>
+  </section>
+
+  <!-- SECCIÓN DE CONTENIDO -->
+  <section class="content-section">
+    <h2>¿Por qué asistir a nuestro evento?</h2>
+    <div class="content-block">
+      <!-- Imagen adaptativa con srcset y sizes -->
+      <img 
+        src="imgs/evento.webp"
+        srcset="imgs/evento.webp 1024w,
+                imgs/evento.webp 768w,
+                imgs/evento.webp 480w"
+        sizes="(max-width: 768px) 100vw, 50vw"
+        alt="Imagen del evento"
+        class="responsive-image"
+      >
+      <p>
+        Nuestro evento ofrece una oportunidad única de conectar con expertos 
+        de la industria, descubrir las últimas tendencias y formar parte 
+        de una comunidad dinámica. ¡No te lo pierdas!
+      </p>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="main-footer">
+    <a href="#!" class="footer-button">
+      <span>Regístrate Aquí</span>
+    </a>
+    <p>© 2025 Panadería Chacón</p>
+  </footer>
+
+</body>
+</html>
