@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #a5663e;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todo el contenido horizontalmente */
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-evenly; /* Distribuye los elementos uniformemente */
+    align-items: center;
+    background-color: #d2ad88;
+    padding: 5px 15px;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Título del Catálogo */
+h1 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 28px;
+    color: #000;
+}
+
+/* Sección del Menú Desplegable */
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px;
+}
+
+.menu select {
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* Sección de Productos */
+.catalogo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 1200px; /* Limita el ancho del catálogo para centrar mejor */
+}
+
+/* Producto separado en imagen y descripción */
+.producto {
+    display: flex;
+    justify-content: center; /* Centra las imágenes y los textos */
+    align-items: center;
+    gap: 20px; /* Espacio entre imagen y texto */
+    width: 100%;
+}
+
+.producto img {
+    width: 30%; /* Hacemos las imágenes más pequeñas */
+    height: auto;
+}
+
+.producto-texto {
+    width: 30%; /* Ajustamos el tamaño del cuadro de texto */
+    padding: 10px;
+    background-color: #f4ede5;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.producto-texto h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.producto-texto p {
+    font-size: 12px;
+}
+
+/* Alternar dirección para la segunda sección */
+.producto.reverse {
+    flex-direction: row-reverse; /* Imagen a la derecha y texto a la izquierda */
+}
+
+.logo-zapato {
+
+    position: relative; 
+
+    animation: slideFromLeft 2s ease forwards;
+}
+
+/* Definimos la animación "slideFromLeft" */
+@keyframes slideFromLeft {
+    0% {
+        /* Parte desde fuera de la pantalla */
+        transform: translateX(-300px);
+        opacity: 0; /* Para que aparezca difuminado */
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1; /* Fin de la animación */
+    }
+}
+
+.logo-carrito {
+    
+    position: relative; 
+   
+    animation: slideFromRight 2s ease forwards;
+}
+
+/* Definimos la animación "slideFromRight" */
+@keyframes slideFromRight {
+    0% {
+        /* Parte desde fuera de la pantalla */
+        transform: translateX(300px);
+        opacity: 0; /* Para que aparezca difuminado */
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1; /* Fin de la animación con el icono completamente visible */
+    }
+}

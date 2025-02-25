@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zapatería - Home</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="css/styles-light.css" />
+
+    <audio id="soundEffectLight" src="audio/cambiar-tema.mp3"></audio>
+    <audio id="soundEffectDark" src="audio/cambiar-tema.mp3"></audio>
+
+    <script>
+      function toggleDarkMode() {
+        const themeStylesheet = document.getElementById("theme-stylesheet");
+        const soundEffectLight = document.getElementById("soundEffectLight");
+        const soundEffectDark = document.getElementById("soundEffectDark");
+
+        // Cambiar entre el CSS del modo claro y oscuro
+        if (themeStylesheet.getAttribute("href") === "css/styles-light.css") {
+          themeStylesheet.setAttribute("href", "css/styles-dark.css");
+          soundEffectDark.play();
+        } else {
+          themeStylesheet.setAttribute("href", "css/styles-light.css");
+          soundEffectLight.play();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Zapatería</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Bienvenidos a nuestra Zapatería</h2>
+      <p>Ofrecemos una amplia variedad de zapatos para todas las ocasiones.</p>
+
+      <!-- VIDEO DE PRESENTACIÓN -->
+      <video width="640" controls>
+        <source src="video/video-inicio.mp4" type="video/mp4" />
+        Tu navegador no soporta este formato de vídeo
+      </video>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Zapatería. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Botón para activar el modo oscuro -->
+    <button class="dark-mode-button" onclick="toggleDarkMode()">
+      Activar Modo Oscuro
+    </button>
+  </body>
+</html>

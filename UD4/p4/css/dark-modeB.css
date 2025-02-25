@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-color: #1a1a1a; 
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    background-color: #1f1f1f; 
+    padding: 20px; /* Aumentado para más espacio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Agregado para separación entre elementos */
+}
+
+header img {
+    height: 30px;
+    margin: 0 25px; /* Aumentado para mayor separación */
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-left: 30px; /* Aumentado para mejor distribución */
+    gap: 30px; /* Agregado para separar los enlaces */
+}
+
+nav a {
+    color: #BB86FC;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 15px; /* Agregado para dar más espacio alrededor del texto */
+}
+
+.cart-icon {
+    height: 30px;
+    margin-right: 30px; /* Aumentado para mayor separación del borde */
+}
+
+.container {
+    text-align: center;
+    padding: 40px; /* Aumentado para más espacio entre contenido y bordes */
+    background-color: #1E1E1E; /* Marrón claro */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 35px; /* Agregado para separar los content-box */
+}
+
+.content-box {
+    background-color: #BB86FC;
+    padding: 35px; /* Aumentado para más espacio interno */
+    margin: 25px auto; /* Aumentado para mayor separación */
+    width: 75%; /* Reducido para dar más espacio en los lados */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra aumentada para mejor definición */
+    font-size: 1.2em;
+}
+
+.logo-zapato {
+
+    position: relative; 
+
+    animation: slideFromLeft 2s ease forwards;
+}
+
+/* Definimos la animación "slideFromLeft" */
+@keyframes slideFromLeft {
+    0% {
+        /* Parte desde fuera de la pantalla */
+        transform: translateX(-300px);
+        opacity: 0; /* Para que aparezca difuminado */
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1; /* Fin de la animación */
+    }
+}
+
+.logo-carrito {
+    
+    position: relative; 
+   
+    animation: slideFromRight 2s ease forwards;
+}
+
+/* Definimos la animación "slideFromRight" */
+@keyframes slideFromRight {
+    0% {
+        /* Parte desde fuera de la pantalla */
+        transform: translateX(300px);
+        opacity: 0; /* Para que aparezca difuminado */
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1; /* Fin de la animación con el icono completamente visible */
+    }
+}
