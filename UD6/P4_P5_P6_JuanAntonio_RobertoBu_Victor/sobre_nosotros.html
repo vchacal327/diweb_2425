@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" id="estilo" href="css/styles.css"> 
+    <title>Sobre Nosotros</title>
+</head>
+<body>
+    <header>
+        <img src="imagenes/zapato.svg" alt="Logo Zapato" class="logo-zapato">
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="contacto.html">Contactanos</a>
+            <a href="catalogo.html">Catalogo</a>
+        </nav>
+        <img src="imagenes/carrito-de-compras.svg" alt="Carrito de compras" class="logo-carrito">
+    </header>
+
+    <button id="cambiarEstilo">Cambiar Estilo</button>  
+    <audio id="soundEffectLight" src="audio/cambiar-tema.mp3"></audio>
+    <audio id="soundEffectDark" src="audio/cambiar-tema.mp3"></audio>
+
+    <script>
+        const boton = document.getElementById('cambiarEstilo');
+        const enlaceEstilo = document.getElementById('estilo');
+        const soundEffectLight = document.getElementById('soundEffectLight');
+        const soundEffectDark = document.getElementById('soundEffectDark');
+
+        boton.addEventListener('click', function () {
+            if (enlaceEstilo.getAttribute('href') === 'css/styles.css') {
+                enlaceEstilo.setAttribute('href', 'css/dark-modeB.css');
+                soundEffectDark.play();
+            } else {
+                enlaceEstilo.setAttribute('href', 'css/styles.css');
+                soundEffectLight.play();
+            }
+        });
+    </script>
+
+    <div class="container">
+        <h1>SOBRE NOSOTROS</h1>
+
+        <div class="content-box">
+            <h2>¿Quienes somos?</h2>
+            <p>Somos 4 chicos jóvenes en etapa de estudio que queremos comenzar este pequeño negocio, en busca de satisfacer las necesidades de nuestra pequeña localidad.</p>
+        </div>
+
+        <div class="content-box">
+            <h2>¿Cómo empezamos?</h2>
+            <p>La zapatería se creó en una pequeña localidad con el motivo de atender la creciente demanda de calzado accesible y de calidad. Se identificó una falta de opciones locales, lo que nos impulsó a establecer un negocio que ofreciera variedad y un servicio personalizado, contribuyendo así al desarrollo de la comunidad.</p>
+        </div>
+
+        <div class="content-box">
+            <h2>¿Cual es nuestro objetivo?</h2>
+            <p>El objetivo de nuestra zapatería es ofrecer una amplia variedad de calzado que se adapte a las necesidades y gustos de los clientes, brindando calidad y comodidad. Además, busca proporcionar un excelente servicio al cliente para fomentar la lealtad y satisfacción. Por último, se aspira también a mantener precios accesibles utilizando las tendencias del mercado para atraer a un público diverso.</p>
+        </div>
+
+        <div class="content-box">
+            <h2>Tu opinión nos importa</h2>
+            <form id="encuestaForm">
+                <label for="tipoCalzado">¿Qué tipo de calzado compras con más frecuencia?</label>
+                <select id="tipoCalzado" name="tipoCalzado">
+                    <option value="deportivo">Deportivo</option>
+                    <option value="formal">Formal</option>
+                    <option value="casual">Casual</option>
+                    <option value="sandalias">Sandalias</option>
+                </select>
+                <br>
+
+                <label for="satisfaccion">¿Cómo calificarías nuestra tienda?</label>
+                <input type="range" id="satisfaccion" name="satisfaccion" min="1" max="5">
+                <br>
+                <label for="comentario">Déjanos un comentario:</label>
+                <textarea id="comentario" name="comentario" rows="1"></textarea>
+                <br>
+                <button type="submit">Enviar</button>
+                <p id="mensajeEnviado" style="display: none; color: green;">¡Gracias por tu opinión!</p>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        Teléfono: +34 847291
+        <a href="http://www.w3.org/WAI/WCAG1AA-Conformance"
+	title="Explicación del Nivel Doble-A de 
+	Conformidad">
+<img height="32" width="88" 
+	src="http://www.w3.org/WAI/wcag1AA"
+	alt="Icono de conformidad con el Nivel Doble-A, 
+	de las Directrices de Accesibilidad para el 
+	Contenido Web 1.0 del W3C-WAI"></a>
+    </div>
+
+    <script>
+        document.getElementById("encuestaForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita la recarga de la página
+            document.getElementById("mensajeEnviado").style.display = "block";
+            this.reset();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

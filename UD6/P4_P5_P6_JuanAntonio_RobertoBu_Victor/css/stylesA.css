@@ -1,0 +1,147 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    background-color: #8B4513; /* Marrón */
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+header {
+    background-color: #4B2E1E; /* Marrón oscuro */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header img {
+    height: 30px;
+}
+nav {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-evenly; /* Distribuir a lo largo del espacio */
+}
+nav a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+.cart-icon {
+    height: 30px;
+}
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #D2B48C; /* Marrón claro */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+h1 {
+    font-size: 3em;
+    color: #4B2E1E;
+    margin-bottom: 20px;
+}
+#content-box {
+    background-color: #FFF;
+    padding: auto;
+    margin: auto;
+    height: 150px;
+    width: 40%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+}
+#content-box2 {
+    background-color: #FFF;
+    padding: 40px auto auto auto;
+    margin: 30px auto auto auto;
+    height: 300px;
+    width: 40%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+}
+#content-box h2 {
+    font-size: 1.5em;
+    color: #4B2E1E;
+    padding: 30px 0px 0px 0px;
+}
+#content-box p {
+    font-size: 1.2em;
+    color: #000000; /* Texto claro */
+}
+#content-box2 h2 {
+    font-size: 1.5em;
+    color: #4B2E1E;
+    padding: 30px 0px 40px 0px;
+}
+#content-box2 p {
+    font-size: 1.2em;
+    color: #000000; /* Texto claro */
+}
+#content-box2 input{
+    margin: 0px 0px 10px 0px;
+}
+.footer {
+    background-color: #4B2E1E;
+    color: #FFF;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2em;
+}
+.logo-zapato {
+
+    position: relative;
+
+    animation: slideFromLeft 2s ease forwards;
+}
+
+/* Definimos la animación "slideFromLeft" */
+@keyframes slideFromLeft {
+    0% {
+        /* Parte desde fuera de la pantalla */
+        transform: translateX(-300px);
+        opacity: 0;
+        /* Para que aparezca difuminado */
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+        /* Fin de la animación */
+    }
+}
+
+.logo-carrito {
+
+    position: relative;
+
+    animation: slideFromRight 2s ease forwards;
+}
+
+/* Definimos la animación "slideFromRight" */
+@keyframes slideFromRight {
+    0% {
+        /* Parte desde fuera de la pantalla */
+        transform: translateX(300px);
+        opacity: 0;
+        /* Para que aparezca difuminado */
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+        /* Fin de la animación con el icono completamente visible */
+    }
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Zapatos</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <link id="theme-stylesheet" rel="stylesheet" href="css/original.css">
+
+    <audio id="soundEffectLight" src="audio/cambiar-tema.mp3"></audio>
+    <audio id="soundEffectDark" src="audio/cambiar-tema.mp3"></audio>
+
+
+    <script>
+        const boton = document.getElementById('theme-toggle');
+        const enlaceEstilo = document.getElementById('theme-stylesheet');
+        const soundEffectLight = document.getElementById('soundEffectLight');
+        const soundEffectDark = document.getElementById('soundEffectDark');
+
+        document.getElementById('theme-toggle').addEventListener('click', function () {
+            const currentTheme = document.getElementById('theme-stylesheet');
+            if (currentTheme.getAttribute('href') === 'css/original.css') {
+                currentTheme.setAttribute('href', 'css/dark-modeV.css');
+                soundEffectDark.play();
+            } else {
+                currentTheme.setAttribute('href', 'css/original.css');
+                soundEffectLight.play();
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <div><img src="imagenes/zapato.svg" alt="Logo" width="40" class="logo-zapato"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contactanos</a></li>
+            </ul>
+        </nav>
+        <div><img src="imagenes/carrito-de-compras.svg" alt="Carrito" width="40" class=logo-carrito></div>
+    </header>
+
+    <!-- Botón de cambio de tema -->
+    <div style="text-align: center; margin: 10px;">
+        <button id="theme-toggle">Cambiar Estilo</button>
+    </div>
+
+    <!-- Título Principal -->
+    <h1>NUESTRO CATÁLOGO</h1>
+
+    <!-- Menú Desplegable -->
+    <div class="menu">
+        <select name="categoria" id="categoriaSelect">
+            <option value="hombre" selected>Hombre</option>
+            <option value="deportivo">Deportivo</option>
+            <option value="botas">Botas</option>
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+        </select>
+
+        <select name="mujer" id="mujerSelect">
+            <option value="mujer">Mujer</option>
+            <option value="deportivo">Deportivo</option>
+            <option value="botas">Botas</option>
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+        </select>
+
+        <select name="niño" id="niñoSelect">
+            <option value="niño">Niño</option>
+            <option value="deportivo">Deportivo</option>
+            <option value="botas">Botas</option>
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+        </select>
+    </div>
+
+    <!-- Sección de Productos -->
+    <div class="catalogo">
+        <!-- Producto 1: Imagen a la izquierda y descripción a la derecha -->
+        <div class="producto">
+            <img src="imagenes/zoom.png" alt="Zapato Zoom">
+            <div class="producto-texto">
+                <h2>Zoom</h2>
+                <p>Las zapatillas Zoom son zapatillas deportivas diseñadas para la velocidad y la comodidad.</p>
+                <!-- Botón para abrir modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#consultaModal"
+                    data-producto="Zoom">
+                    Consultar Producto
+                </button>
+            </div>
+        </div>
+
+        <!-- Producto 2: Imagen a la derecha y descripción a la izquierda -->
+        <div class="producto reverse">
+            <img src="imagenes/kinetik.png" alt="Zapato Kinetik Fit">
+            <div class="producto-texto">
+                <h2>Kinetik Fit</h2>
+                <p>Las Kinetik Fit son zapatos deportivos diseñados con tecnología avanzada ...</p>
+                <!-- Botón para abrir modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#consultaModal"
+                    data-producto="Kinetik Fit">
+                    Consultar Producto
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para consulta -->
+    <div class="modal fade" id="consultaModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Consulta sobre producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formConsulta">
+                        <div class="mb-3">
+                            <label for="nombreCliente" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombreCliente" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailCliente" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="emailCliente" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productoConsulta" class="form-label">Producto</label>
+                            <input type="text" class="form-control" id="productoConsulta" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="talla" class="form-label">Talla</label>
+                            <select class="form-select" id="talla">
+                                <option>Selecciona tu talla</option>
+                                <option>38</option>
+                                <option>39</option>
+                                <option>40</option>
+                                <option>41</option>
+                                <option>42</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">Mensaje adicional</label>
+                            <textarea class="form-control" id="mensaje"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Enviar Consulta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Bootstrap JS con la firma correcta -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery 3.6.0 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- script js -->
+    <script>
+        // Cuando se abra el modal, rellenamos el campo “Producto” automáticamente
+        const consultaModal = document.getElementById('consultaModal');
+        consultaModal.addEventListener('show.bs.modal', function (event) {
+            let button = event.relatedTarget; // Botón que abrió el modal
+            let producto = button.getAttribute('data-producto');
+            document.getElementById('productoConsulta').value = producto;
+        });
+
+        // Manejo del envío del formulario
+        $('#formConsulta').submit(function (e) {
+            e.preventDefault(); // Evita el submit normal
+            let nombre = $('#nombreCliente').val();
+            let email = $('#emailCliente').val();
+            if (!nombre || !email) {
+                alert('Por favor, rellena los campos obligatorios.');
+            } else {
+                alert('¡Consulta enviada con éxito!');
+                // Cierra el modal
+                let modalElement = bootstrap.Modal.getInstance(document.getElementById('consultaModal'));
+                modalElement.hide();
+                // Limpia el formulario
+                $(this)[0].reset();
+            }
+        });
+    </script>
+
+</body>
+
+<footer> <a href="http://www.w3.org/WAI/WCAG1AA-Conformance" title="Explicación del Nivel Doble-A de 
+	Conformidad">
+            <img height="32" width="88" src="http://www.w3.org/WAI/wcag1AA" alt="Icono de conformidad con el Nivel Doble-A, 
+	de las Directrices de Accesibilidad para el 
+	Contenido Web 1.0 del W3C-WAI"></a> </footer>
+
+</html>

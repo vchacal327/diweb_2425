@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" id="estilo" href="css/stylesContacto.css">
+    <title>Contacto</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="imagenes/zapato.svg" alt="Logo Zapato" class="logo-zapato">
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="sobre_nosotros.html">Sobre Nosotros</a>
+            <a href="catalogo.html">Catalogo</a>
+        </nav>
+        <img src="imagenes/carrito-de-compras.svg" alt="Carrito de compras" class="logo-carrito">
+    </header>
+
+    <button id="cambiarEstilo">Cambiar Estilo</button>
+
+    <audio id="soundEffectLight" src="audio/cambiar-tema.mp3"></audio>
+    <audio id="soundEffectDark" src="audio/cambiar-tema.mp3"></audio>
+
+    <div class="container">
+        <h1>Contacto</h1>
+
+        <div id="content-box">
+            <h2>Información</h2>
+            <p>Correo: zapateria1@gmail.com</p>
+            <p>Teléfono: +34847291</p>
+        </div>
+
+        <picture>
+            <source srcset="imagenes/imagen-contacto.png" width="200px" height="200px" media="(min-width: 1024px)"
+                loading="lazy">
+            <source srcset="imagenes/imagen-contacto.png" width="200px" height="200px" media="(min-width: 768px)"
+                loading="lazy">
+            <img src="imagenes/imagen-contacto.png" width="200px" height="200px" alt="Representación de teléfono"
+                loading="lazy">
+        </picture>
+
+        <div id="content-box2">
+            <form method="POST" id="formularioContacto">
+                <h2>Consulta</h2>
+                <div class="form-group">
+                    <label for="correoUsuario">Correo: </label>
+                    <input type="email" id="correoUsuario" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea type="text" id="mensaje" required></textarea><br><br><br>
+                </div>
+                <button type="submit" id="botonFormulario">Enviar</button>
+            </form>
+        </div>
+        <div id="dialogoModal"></div>
+    </div>
+
+    <div class="footer">
+
+        Teléfono: +34 847291
+        <a href="http://www.w3.org/WAI/WCAG1AA-Conformance" title="Explicación del Nivel Doble-A de 
+	Conformidad">
+            <img height="32" width="88" src="http://www.w3.org/WAI/wcag1AA" alt="Icono de conformidad con el Nivel Doble-A, 
+	de las Directrices de Accesibilidad para el 
+	Contenido Web 1.0 del W3C-WAI"></a>
+
+    </div>
+
+    <script>
+        const boton = $('#cambiarEstilo');
+        const enlaceEstilo = $('#estilo');
+        const soundEffectLight = $('#soundEffectLight');
+        const soundEffectDark = $('#soundEffectDark');
+
+        boton.on('click', function () {
+            if (enlaceEstilo.attr('href') === 'css/stylesContacto.css') {
+                enlaceEstilo.attr('href', 'css/dark-modeContacto.css');
+                soundEffectDark[0].play();
+            } else {
+                enlaceEstilo.attr('href', 'css/stylesContacto.css');
+                soundEffectLight[0].play();
+            }
+        });
+
+        const formularioContacto = $('#formularioContacto');
+        formularioContacto.on('submit', function (e) {
+            e.preventDefault();
+
+            const correo = $('#correoUsuario').val();
+            const mensaje = $('#mensaje').val();
+
+            if (correo && mensaje) {
+                mostrarDialogoExito();
+            } else {
+                alert('Por favor complete todos los campos requeridos.');
+            }
+        });
+
+        function mostrarDialogoExito() {
+
+            $('#dialogoModal').html(`
+            <dialog open>
+                <p>Se envió el correo con éxito</p>
+                <form method="dialog">
+                    <button type="submit">OK</button>
+                </form>
+                </dialog>
+            `);
+            document.body.appendChild(dialogo);
+            dialogo.showModal();
+
+            dialogo.addEventListener('close', () => {
+                dialogo.remove();
+            });
+        };
+    </script>
+
+</body>
+
+</html>
